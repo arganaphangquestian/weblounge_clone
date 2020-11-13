@@ -1,0 +1,760 @@
+:root {
+  --paddingBody: 240px;
+  --yellow: #efc337;
+  --white: #f4f4f4;
+  --gray: #6c6c6c;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  color: var(--gray);
+}
+
+/* font-family: 'Nunito', sans-serif;
+font-family: 'Playfair Display', serif; */
+
+.button {
+  padding: 16px 24px !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+
+.button span {
+  position: relative;
+  z-index: 1;
+  transition: all 0.25s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  transition: all 0.25s ease;
+}
+
+.button:hover::before {
+  height: 100%;
+}
+
+.button.button-primary {
+  color: #fff;
+  background-color: var(--yellow);
+}
+
+.button.button-primary::before {
+  background-color: var(--gray);
+}
+
+.button.button-secondary {
+  color: var(--gray);
+  border: 3px solid #fff;
+}
+
+.button.button-secondary::before {
+  background-color: #fff;
+}
+
+.button.button-third {
+  color: var(--gray);
+  border: 3px solid var(--gray);
+}
+
+.button.button-third:hover span {
+  color: #fff;
+}
+
+.button.button-third::before {
+  background-color: var(--gray);
+}
+
+.button.button-fourth {
+  color: var(--white);
+  background-color: #343a40;
+}
+
+.button.button-fourth:hover span {
+  color: #343a40;
+}
+
+.button.button-fourth::before {
+  background-color: #fff;
+}
+
+/* Nav Scroll */
+.navscroll {
+  padding: 0 var(--paddingBody);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 9;
+  transform: translateY(-100%);
+  transition: all 0.25s ease;
+}
+
+.navscroll.active {
+  transform: translateY(0%);
+}
+
+.navscroll nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+
+.navscroll nav a {
+  display: inline-block;
+  padding: 16px 0;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+}
+
+.navscroll nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.navscroll nav ul li {
+  margin-right: 16px;
+}
+
+.navscroll nav ul li:last-child {
+  margin-right: 0;
+}
+
+.navscroll nav ul li a {
+  font-weight: lighter;
+}
+
+/* Header */
+
+.header {
+  width: 100%;
+  height: 100vh;
+  padding: 0 var(--paddingBody);
+  background-image: url(/assets/img/header.webp);
+  background-position: center left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.header nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 56px;
+}
+
+.header nav a {
+  display: inline-block;
+  padding: 16px 0;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.header nav ul li {
+  margin-right: 16px;
+}
+
+.header nav ul li:last-child {
+  margin-right: 0;
+}
+
+.header nav ul li a {
+  font-weight: lighter;
+}
+
+.header .content {
+  flex: 1;
+  width: 50%;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header .content h1 {
+  font-size: 3.6rem;
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  margin-bottom: 32px;
+  line-height: 1.1;
+}
+
+.header .content h1 span {
+  font-style: italic;
+}
+
+.header .content p {
+  margin-bottom: 32px;
+}
+
+.header .content .button:first-child {
+  margin-right: 24px;
+}
+
+/* Portfolio */
+.portfolio {
+  padding: 0 var(--paddingBody);
+  background-color: var(--white);
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.portfolio .text {
+  width: 100%;
+  display: flex;
+  margin-bottom: 56px;
+}
+
+.portfolio .text * {
+  flex: 1;
+}
+
+.portfolio .text h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+}
+
+.portfolio .text h1 span {
+  font-style: italic;
+}
+
+.portfolio .text p a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.portfolio .cards {
+  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: 1.5fr 0.75fr 0.75fr;
+  grid-template-rows: 300px 100px 300px;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Card-1 Card-3 Card-4"
+    "Card-1 Card-5 Card-5"
+    "Card-2 Card-5 Card-5";
+}
+
+.portfolio .cards .card {
+  position: relative;
+  cursor: pointer;
+}
+
+.portfolio .cards .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio .cards .card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.6)
+  );
+}
+
+.portfolio .cards .card > span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  margin: 24px;
+  color: #fff;
+  z-index: 1;
+}
+
+.portfolio .cards .card > .overlay {
+  opacity: 0;
+  transition: all 0.25s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 48px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.portfolio .cards .card > .overlay::before,
+.portfolio .cards .card > .overlay::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 32px;
+  transition: all 0.5s ease-out;
+}
+
+.portfolio .cards .card > .overlay::before {
+  transform: scaleX(0);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.portfolio .cards .card > .overlay::after {
+  transform: scaleY(0);
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.portfolio .cards .card > .overlay:hover::before {
+  transform: scaleX(1);
+}
+
+.portfolio .cards .card > .overlay:hover::after {
+  transform: scaleY(1);
+}
+
+.portfolio .cards .card > .overlay * {
+  color: #fff;
+}
+
+.portfolio .cards .card > .overlay h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.portfolio .cards .card-1 > .overlay {
+  background-color: #b97f33d9;
+}
+.portfolio .cards .card-2 > .overlay {
+  background-color: #cc4accd9;
+}
+.portfolio .cards .card-3 > .overlay {
+  background-color: #3dc5b7d9;
+}
+.portfolio .cards .card-4 > .overlay {
+  background-color: #d63ad6d9;
+}
+.portfolio .cards .card-5 > .overlay {
+  background-color: #caca3bd9;
+}
+
+.portfolio .cards .card > .overlay hr {
+  width: 20%;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  margin: 8px 0;
+}
+
+.portfolio .cards .card > .overlay a {
+  text-decoration: none;
+}
+
+.portfolio .cards .card:hover .overlay {
+  opacity: 1;
+}
+
+.portfolio .cards .card-1 {
+  background-color: red;
+  grid-area: Card-1;
+}
+.portfolio .cards .card-2 {
+  background-color: yellow;
+  grid-area: Card-2;
+}
+.portfolio .cards .card-3 {
+  background-color: green;
+  grid-area: Card-3;
+}
+.portfolio .cards .card-4 {
+  background-color: blue;
+  grid-area: Card-4;
+}
+.portfolio .cards .card-5 {
+  background-color: teal;
+  grid-area: Card-5;
+}
+
+.portfolio > .button {
+  margin-bottom: 96px;
+}
+
+/* Client */
+.client {
+  min-height: 90vh;
+  padding: 0 var(--paddingBody);
+  background-image: url(/assets/img/bg-wood.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 56px;
+}
+
+.client .text {
+  text-align: center;
+}
+
+.client .text h1 {
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  font-size: 3.5rem;
+  font-weight: lighter;
+  margin-bottom: 16px;
+}
+
+.client .text h1 span {
+  font-style: italic;
+}
+
+.client .text h4 {
+  color: #e7e7e7;
+  font-family: "Playfair Display", serif;
+  font-weight: 200;
+  letter-spacing: 1.1px;
+}
+
+.client .card {
+  margin-top: 56px;
+  width: 800px;
+  padding: 48px 56px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #e9e9e9;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.client .card > p {
+  line-height: 2;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.client .card .person {
+  display: flex;
+  align-items: center;
+}
+
+.client .card .person img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-right: 32px;
+}
+
+.client .card .person .description p {
+  margin-bottom: 4px;
+}
+
+.client .card .person .description small {
+  padding-top: 3px;
+  border-top: 1px solid #fefefe;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  font-family: "Raleway", sans-serif;
+  font-style: italic;
+  font-size: 10px;
+}
+
+/* About */
+.about {
+  min-height: 90vh;
+  padding-top: 56px;
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about .text {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.about .text h1 {
+  font-size: 3rem;
+  font-family: "Playfair Display", serif;
+  font-weight: lighter;
+}
+
+.about .text h1 span {
+  font-style: italic;
+}
+
+.about .cards {
+  margin-bottom: 56px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  column-gap: 48px;
+  row-gap: 48px;
+}
+
+.about .cards .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.about .cards .card img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.about .cards .card h1 {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.about .cards .card h1 span {
+  font-style: italic;
+}
+
+.about .cards .card hr {
+  width: 60%;
+  margin-bottom: 24px;
+  border: none;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.25);
+}
+
+.about .cards .card p {
+  text-align: center;
+  line-height: 1.3;
+}
+
+.about .button {
+  margin-bottom: 96px;
+}
+
+/* Footer */
+footer {
+  min-height: 90vh;
+  padding: 0 var(--paddingBody);
+  background-image: url(/assets/img/footer.webp);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 32px;
+}
+
+footer .logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+footer h1 {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--white);
+  font-weight: lighter;
+  font-size: 3rem;
+}
+
+footer p {
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  color: var(--white);
+  font-weight: lighter;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+}
+
+footer .button {
+  margin-bottom: 24px;
+}
+
+footer .button span {
+  color: var(--gray);
+}
+
+footer .button:hover span {
+  color: #fff;
+}
+
+footer .socials {
+  margin-bottom: 24px;
+}
+
+footer .offices {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .offices .fancy {
+  text-align: left;
+}
+
+footer .offices .fancy p {
+  text-align: left;
+  font-size: 1rem;
+}
+
+footer .offices .fancy a {
+  color: var(--yellow);
+}
+
+footer .offices .registered {
+  text-align: right;
+}
+
+footer .offices .registered p {
+  text-align: right;
+  font-size: 1rem;
+}
+
+footer hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid rgba(200, 200, 200, 0.75);
+  margin: 24px 0;
+}
+
+footer .footnote {
+  width: 100%;
+  color: inherit;
+  font-size: 0.7rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .footnote a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+footer .footnote a:hover {
+  color: #e9e9e9;
+}
+
+footer .footnote .socials a {
+  margin-right: 8px;
+}
+
+footer .footnote .socials a:last-child {
+  margin-right: 0px;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    --paddingBody: 56px;
+  }
+
+  .client .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .header nav ul {
+    display: none;
+  }
+
+  .header .content {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .header .content > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .header .content > div .button:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  .portfolio .cards {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 250px);
+    gap: 0px 0px;
+    grid-template-areas:
+      "Card-1"
+      "Card-2"
+      "Card-3"
+      "Card-4"
+      "Card-5";
+  }
+
+  .portfolio .cards .card-1 {
+    grid-area: Card-1;
+  }
+  .portfolio .cards .card-2 {
+    grid-area: Card-2;
+  }
+  .portfolio .cards .card-3 {
+    grid-area: Card-3;
+  }
+  .portfolio .cards .card-4 {
+    grid-area: Card-4;
+  }
+  .portfolio .cards .card-5 {
+    grid-area: Card-5;
+  }
+}
